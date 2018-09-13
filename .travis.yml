@@ -1,3 +1,14 @@
 language: node_js
 node_js:
-  - "7"
+- '7'
+deploy:
+  provider: gae
+  keyfile: gae.json
+  project: node-travis-test
+  version: two
+  skip_cleanup: true
+  no_stop_previous_version: true
+  no_promote: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_5e9d9f5d657d_key -iv $encrypted_5e9d9f5d657d_iv
+  -in gae.json.enc -out gae.json -d

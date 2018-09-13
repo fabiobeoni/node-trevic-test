@@ -1,6 +1,15 @@
-var http = require('http');
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello Travis!\n');
-}).listen(5000, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:5000/');
+const express = require('express');
+
+const app = express();
+
+app.get('/', (req, res) => {
+    res.status(200).send('Hello, world!').end();
+});
+
+// Start the server
+const PORT = process.env.PORT || 8080;
+
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`);
+    console.log('Press Ctrl+C to quit.');
+});
