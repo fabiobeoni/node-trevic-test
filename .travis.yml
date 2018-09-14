@@ -6,6 +6,7 @@ deploy:
   keyfile: gae.json
   project: node-travis-test
   verbosity:debug
+  on:master
 before_install:
 - openssl aes-256-cbc -K $encrypted_5e9d9f5d657d_key -iv $encrypted_5e9d9f5d657d_iv
   -in gae.json.enc -out gae.json -d
